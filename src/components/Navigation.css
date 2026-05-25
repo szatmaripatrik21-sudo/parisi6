@@ -1,0 +1,193 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background 0.30s ease, box-shadow 0.30s ease, backdrop-filter 0.30s ease;
+  /* Default: subtle ambient gradient over hero photo */
+  --nav-text: rgba(250, 245, 236, 0.96);
+  --nav-text-muted: rgba(250, 245, 236, 0.78);
+  background: linear-gradient(to bottom, rgba(10, 5, 2, 0.36) 0%, transparent 100%);
+}
+
+.nav--scrolled {
+  /* On light page sections — switch to dark text */
+  --nav-text: var(--text);
+  --nav-text-muted: var(--text-muted);
+  background: rgba(250, 247, 240, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 var(--border), 0 2px 20px rgba(60, 40, 20, 0.09);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  gap: 32px;
+}
+
+/* Logo */
+.nav__logo {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav__logo-text {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  color: var(--nav-text);
+  text-transform: uppercase;
+  transition: color 0.30s ease;
+}
+
+.nav__logo-six {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--paprika);
+  line-height: 1;
+  letter-spacing: 0;
+  transition: text-shadow 0.30s ease;
+}
+
+.nav--scrolled .nav__logo-six {
+  text-shadow: none;
+}
+
+/* Desktop links */
+.nav__links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+  flex: 1;
+}
+
+.nav__links a {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--nav-text-muted);
+  text-decoration: none;
+  transition: color 0.20s ease;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 1.5px;
+    background: var(--paprika);
+    transform: scaleX(0);
+    transition: transform 0.22s ease;
+    transform-origin: left;
+  }
+
+  &:hover {
+    color: var(--nav-text);
+    &::after { transform: scaleX(1); }
+  }
+}
+
+/* CTA */
+.nav__cta {
+  margin-left: auto;
+  padding: 9px 20px;
+  font-size: 13px;
+}
+
+/* Burger */
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  margin-left: auto;
+
+  span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--nav-text);
+    border-radius: 2px;
+    transition: transform 0.24s ease, opacity 0.24s ease, background 0.30s ease;
+  }
+}
+
+.nav--open .nav__burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav--open .nav__burger span:nth-child(2) { opacity: 0; }
+.nav--open .nav__burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile drawer */
+.nav__drawer {
+  display: none;
+  flex-direction: column;
+  background: rgba(250, 247, 240, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0 20px;
+  border-top: 1px solid var(--border);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.34s ease;
+  width: 100%;
+  box-sizing: border-box;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  li { border-bottom: 1px solid var(--border); }
+
+  a {
+    display: block;
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    padding: 14px 0;
+    text-decoration: none;
+    touch-action: manipulation;
+  }
+}
+
+.nav__drawer-cta {
+  margin: 16px 0 24px;
+  width: 100%;
+  font-size: 14px;
+  height: 50px;
+  padding: 0;
+  border-radius: var(--radius);
+}
+
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__cta   { display: none; }
+  .nav__burger { display: flex; }
+  .nav__drawer { display: flex; }
+
+  .nav--open .nav__drawer { max-height: 500px; }
+
+  .nav--open {
+    background: rgba(250, 247, 240, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+}

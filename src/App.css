@@ -1,0 +1,60 @@
+/* Mobile sticky bar — 3 quick actions */
+.mobile-sticky {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: rgba(250, 247, 240, 0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -2px 20px rgba(60, 40, 20, 0.10);
+
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+  }
+}
+
+.mobile-sticky__action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 6px 10px;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: color 0.18s ease, background 0.18s ease;
+  border-right: 1px solid var(--border);
+  min-height: 50px;
+
+  svg { flex-shrink: 0; }
+
+  &:hover { color: var(--paprika); }
+  &:last-child { border-right: none; }
+}
+
+.mobile-sticky__action--book {
+  flex-direction: row;
+  background: var(--paprika);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border-right: none;
+  gap: 0;
+
+  &:hover {
+    background: var(--paprika-dark);
+    color: #fff;
+  }
+}

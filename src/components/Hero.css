@@ -1,0 +1,349 @@
+.hero {
+  position: relative;
+  height: 100svh;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Interior photo background */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 95%;
+  background-repeat: no-repeat;
+  transform: scale(1.04);
+  animation: heroBgIn 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes heroBgIn {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1.00); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg { animation: none; transform: none; }
+}
+
+/* Tasteful directional gradient — darkens left text area, lets right breathe */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to right,
+      rgba(12, 6, 2, 0.80) 0%,
+      rgba(12, 6, 2, 0.54) 36%,
+      rgba(12, 6, 2, 0.16) 62%,
+      transparent 78%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(12, 6, 2, 0.38) 0%,
+      transparent 20%
+    ),
+    linear-gradient(
+      to top,
+      rgba(12, 6, 2, 0.40) 0%,
+      transparent 28%
+    );
+}
+
+/* Layout — hero breaks out of the centered container so text anchors to the
+   left of the viewport, not the center of a max-width box */
+.hero__inner {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: none;          /* override .container's 1140px cap */
+  margin: 0;                /* override .container's margin: 0 auto centering */
+  padding: 100px clamp(16px, 3.5vw, 52px) 60px clamp(24px, 5vw, 80px);
+}
+
+.hero__content {
+  max-width: 560px;
+  position: relative;
+  transform: translateY(-6%); /* fine-tune: nudge slightly above exact center */
+}
+
+/* Trust badge / rating pill */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--on-dark-muted);
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  background: rgba(12, 7, 3, 0.36);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 240, 210, 0.14);
+  border-radius: var(--radius-pill);
+  padding: 7px 16px;
+}
+
+.hero__badge-star { color: #e0aa44; }
+.hero__badge-sep  { color: var(--on-dark-faint); }
+
+.hero__badge-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #7ecf7e;
+  font-weight: 600;
+}
+
+.hero__badge-open::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7ecf7e;
+  flex-shrink: 0;
+  animation: openPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes openPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+
+/* Title */
+.hero__title {
+  font-family: var(--serif);
+  font-size: clamp(72px, 11vw, 130px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.hero__title-parisi {
+  color: #faf5ec;
+  text-shadow: 0 2px 32px rgba(0, 0, 0, 0.38);
+}
+
+.hero__title-six {
+  color: var(--paprika);
+  font-weight: 600;
+  font-size: 1.05em;
+  position: relative;
+  top: -0.02em;
+  text-shadow:
+    0 0 50px rgba(200, 48, 42, 0.55),
+    0 0 18px rgba(200, 48, 42, 0.32),
+    0 2px 28px rgba(0, 0, 0, 0.38);
+  animation: sixGlow 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes sixGlow {
+  from { text-shadow: 0 0 50px rgba(200,48,42,0.45), 0 0 18px rgba(200,48,42,0.25), 0 2px 28px rgba(0,0,0,0.38); }
+  to   { text-shadow: 0 0 72px rgba(200,48,42,0.70), 0 0 32px rgba(200,48,42,0.42), 0 2px 28px rgba(0,0,0,0.38); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__title-six { animation: none; }
+}
+
+/* Subtitle */
+.hero__sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(17px, 2vw, 22px);
+  color: rgba(250, 245, 236, 0.96);
+  line-height: 1.4;
+  margin-bottom: 12px;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.55), 0 0 36px rgba(0, 0, 0, 0.28);
+}
+
+/* Description */
+.hero__desc {
+  font-family: var(--sans);
+  font-size: 14.5px;
+  color: rgba(250, 245, 236, 0.78);
+  line-height: 1.72;
+  max-width: 460px;
+  margin-bottom: 32px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+}
+
+/* Actions */
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Entrance animations */
+.hero__badge--anim   { animation: heroIn 0.70s ease both; animation-delay: 0.08s; }
+.hero__title--anim   { animation: heroIn 0.70s ease both; animation-delay: 0.20s; }
+.hero__sub--anim     { animation: heroIn 0.70s ease both; animation-delay: 0.32s; }
+.hero__desc--anim    { animation: heroIn 0.70s ease both; animation-delay: 0.42s; }
+.hero__actions--anim { animation: heroIn 0.70s ease both; animation-delay: 0.54s; }
+
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__badge--anim, .hero__title--anim, .hero__sub--anim,
+  .hero__desc--anim, .hero__actions--anim { animation: none; }
+}
+
+
+/* ── Mobile ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero {
+    align-items: center;
+    height: 84svh;
+    height: 84vh;
+    min-height: 520px;
+    padding-top: 60px; /* offset for fixed nav */
+  }
+
+  .hero__bg {
+    background-position: center 20%;
+  }
+
+  /* Cinematic overlay: image breathes in the middle, light top for nav,
+     moderate bottom for text — never a solid dark block */
+  .hero__overlay {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(10, 5, 2, 0.30) 0%,
+        transparent 18%
+      ),
+      linear-gradient(
+        to top,
+        rgba(10, 5, 2, 0.58) 0%,
+        rgba(10, 5, 2, 0.22) 32%,
+        rgba(10, 5, 2, 0.04) 60%,
+        transparent 74%
+      );
+  }
+
+  .hero__inner {
+    padding-top: 0;
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .hero__content {
+    max-width: 100%;
+    transform: none; /* cancel desktop nudge */
+  }
+
+  /* Compact badge */
+  .hero__badge {
+    font-size: 10.5px;
+    gap: 6px;
+    padding: 5px 12px;
+    flex-wrap: nowrap;
+    margin-bottom: 10px;
+  }
+
+  .hero__badge-sep--addr,
+  .hero__badge-addr { display: none; }
+
+  /* Slightly smaller, more elegant title — image-first feel */
+  .hero__title {
+    font-size: clamp(44px, 11.5vw, 58px);
+    margin-bottom: 10px;
+    line-height: 0.94;
+  }
+
+  /* Stronger local text-shadow compensates for lighter global overlay */
+  .hero__title-parisi {
+    text-shadow:
+      0 2px 18px rgba(0, 0, 0, 0.58),
+      0 1px 5px rgba(0, 0, 0, 0.32);
+  }
+
+  .hero__title-six {
+    text-shadow:
+      0 0 40px rgba(200, 48, 42, 0.55),
+      0 0 14px rgba(200, 48, 42, 0.30),
+      0 2px 18px rgba(0, 0, 0, 0.50);
+  }
+
+  /* Slightly smaller subtitle */
+  .hero__sub {
+    font-size: clamp(13px, 3.4vw, 15px);
+    margin-bottom: 16px;
+    text-shadow:
+      0 1px 10px rgba(0, 0, 0, 0.68),
+      0 2px 22px rgba(0, 0, 0, 0.40);
+  }
+
+  .hero__desc { display: none; }
+
+  .hero__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 13.5px;
+    padding: 0 10px;
+    height: 48px;
+    letter-spacing: 0.03em;
+  }
+
+  /* Outline button: lighter and more transparent so image shows through */
+  .hero__actions .btn--outline {
+    background: rgba(10, 5, 2, 0.16);
+    border-color: rgba(250, 245, 236, 0.60);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+}
+
+/* Delivery hint — subtle line below CTA buttons */
+.hero__delivery-hint {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  color: rgba(250, 245, 236, 0.46);
+  margin-top: 12px;
+  letter-spacing: 0.03em;
+
+  a {
+    color: rgba(250, 245, 236, 0.64);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(250, 245, 236, 0.20);
+    padding-bottom: 1px;
+    transition: color 0.18s ease, border-color 0.18s ease;
+
+    &:hover {
+      color: rgba(250, 245, 236, 0.90);
+      border-color: rgba(250, 245, 236, 0.46);
+    }
+  }
+}
+
+.hero__delivery-hint--anim {
+  animation: heroIn 0.70s ease both;
+  animation-delay: 0.62s;
+}
+
+@media (max-width: 768px) {
+  .hero__delivery-hint {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+}

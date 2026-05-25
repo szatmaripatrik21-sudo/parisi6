@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap');
+
+/* ── Design tokens — warm light theme ─────────────── */
+:root {
+  --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans:  'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Core backgrounds — warm cream palette */
+  --bg:       #faf7f0;   /* main warm cream */
+  --bg-alt:   #f3ebe0;   /* slightly deeper cream, alternating sections */
+  --bg-card:  #ffffff;   /* white cards */
+  --bg-warm:  #fdf9f3;   /* warm white */
+  --bg-deep:  #1a1008;   /* dark only: footer + photo overlays */
+
+  /* Text on light backgrounds */
+  --text:       #1e140a;
+  --text-mid:   rgba(30, 20, 10, 0.70);
+  --text-muted: rgba(30, 20, 10, 0.52);
+  --text-faint: rgba(30, 20, 10, 0.28);
+
+  /* Text on dark/photo backgrounds */
+  --on-dark:       #faf5ec;
+  --on-dark-muted: rgba(250, 245, 236, 0.70);
+  --on-dark-faint: rgba(250, 245, 236, 0.36);
+
+  /* Borders on light */
+  --border:        rgba(160, 120, 80, 0.13);
+  --border-mid:    rgba(160, 120, 80, 0.22);
+  --border-strong: rgba(160, 120, 80, 0.38);
+
+  /* Accents */
+  --paprika:      #c8302a;
+  --paprika-dark: #9e2620;
+  --paprika-glow: rgba(200, 48, 42, 0.16);
+  --gold:         #b88428;
+  --gold-light:   #d09a38;
+  --gold-glow:    rgba(184, 132, 40, 0.14);
+
+  /* Shadows — soft, warm */
+  --shadow:    0 2px 12px rgba(60, 40, 20, 0.09), 0 1px 3px rgba(60, 40, 20, 0.05);
+  --shadow-md: 0 4px 24px rgba(60, 40, 20, 0.11), 0 1px 6px rgba(60, 40, 20, 0.06);
+  --shadow-lg: 0 8px 48px rgba(60, 40, 20, 0.14), 0 2px 8px rgba(60, 40, 20, 0.07);
+
+  /* Layout */
+  --container:   1140px;
+  --pad:         clamp(20px, 5vw, 72px);
+  --section-py:  clamp(36px, 4vw, 58px);
+  --radius:      10px;
+  --radius-lg:   16px;
+  --radius-pill: 100px;
+}
+
+/* ── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Focus-visible — keyboard nav only */
+:focus-visible {
+  outline: 2px solid var(--paprika);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+#root { min-height: 100svh; }
+
+img { display: block; max-width: 100%; height: auto; }
+a   { color: inherit; text-decoration: none; }
+p   { margin: 0; }
+
+/* Offset anchor targets so they don't hide under the fixed navbar */
+section[id] { scroll-margin-top: 80px; }
+
+@media (max-width: 768px) {
+  section[id] { scroll-margin-top: 68px; }
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.12;
+  margin: 0;
+  color: var(--text);
+}
+
+/* ── Utilities ─────────────────────────────────────── */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+.section-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paprika);
+  margin-bottom: 10px;
+  opacity: 0.82;
+}
+
+.section-label--gold  { color: var(--gold); }
+.section-label--light { color: var(--on-dark-muted); }
+
+/* ── Scroll reveal ─────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+[data-reveal].revealed { opacity: 1; transform: none; }
+
+[data-reveal][data-delay="1"] { transition-delay: 0.10s; }
+[data-reveal][data-delay="2"] { transition-delay: 0.20s; }
+[data-reveal][data-delay="3"] { transition-delay: 0.30s; }
+[data-reveal][data-delay="4"] { transition-delay: 0.40s; }
+[data-reveal][data-delay="5"] { transition-delay: 0.50s; }
+[data-reveal][data-delay="6"] { transition-delay: 0.60s; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── Buttons ───────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-pill);
+  padding: 12px 28px;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  border: none;
+  transition: transform 0.22s ease, box-shadow 0.22s ease,
+              background 0.20s ease, color 0.20s ease, border-color 0.20s ease;
+}
+
+/* Paprika filled — works on both light and dark sections */
+.btn--primary {
+  background: var(--paprika);
+  color: #fff;
+  box-shadow: 0 3px 14px var(--paprika-glow);
+
+  &:hover {
+    background: var(--paprika-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 24px rgba(200, 48, 42, 0.30);
+  }
+}
+
+/* Outline cream — for use on dark/photo backgrounds (hero) */
+.btn--outline {
+  background: rgba(12, 7, 3, 0.30);
+  color: var(--on-dark);
+  border: 1.5px solid rgba(250, 245, 236, 0.82);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  &:hover {
+    border-color: rgba(250, 245, 236, 1.00);
+    background: rgba(250, 245, 236, 0.16);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
+  }
+}
+
+/* Outline dark — for use on light/cream sections */
+.btn--outline-dark {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--border-strong);
+
+  &:hover {
+    border-color: var(--paprika);
+    color: var(--paprika);
+    transform: translateY(-2px);
+  }
+}
+
+/* Paprika outline */
+.btn--outline-paprika {
+  background: transparent;
+  color: var(--paprika);
+  border: 1.5px solid rgba(200, 48, 42, 0.38);
+
+  &:hover {
+    background: var(--paprika);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px var(--paprika-glow);
+  }
+}
+
+/* Gold filled */
+.btn--gold {
+  background: var(--gold);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 3px 14px var(--gold-glow);
+
+  &:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(184, 132, 40, 0.28);
+  }
+}
+
+/* ── Mobile global overrides ───────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --section-py: 52px;
+  }
+
+  /* Minimum 44px tap target on all buttons */
+  .btn {
+    min-height: 44px;
+  }
+
+  /* Subtler reveal motion on mobile */
+  [data-reveal] {
+    transform: translateY(8px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+
+  /* Prevent any stray horizontal overflow */
+  .container {
+    overflow-x: clip;
+  }
+}

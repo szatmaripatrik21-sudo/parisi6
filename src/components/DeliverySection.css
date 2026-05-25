@@ -1,0 +1,132 @@
+.delivery {
+  padding: var(--section-py) 0;
+  background: var(--bg-alt);
+}
+
+.delivery__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-mid);
+  border-left: 3px solid var(--paprika);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  box-shadow: var(--shadow);
+}
+
+/* Text side */
+.delivery__title {
+  font-size: clamp(22px, 2.6vw, 30px);
+  color: var(--text);
+  margin: 4px 0 10px;
+}
+
+.delivery__sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 360px;
+}
+
+/* Platform buttons */
+.delivery__platforms {
+  display: flex;
+  gap: 14px;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.delivery__platform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 32px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  background: var(--bg);
+  border: 1.5px solid var(--border-mid);
+  min-width: 148px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* Logo image — hidden via onError if file absent, brand name still shows */
+.delivery__logo {
+  height: 38px;
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+  display: block;
+}
+
+.delivery__platform-name {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.delivery__platform--wolt  .delivery__platform-name { color: #009de0; }
+.delivery__platform--foodora .delivery__platform-name { color: #e0164f; }
+
+.delivery__platform-cta {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.delivery__platform--wolt:hover    { border-color: rgba(0, 157, 224, 0.45); }
+.delivery__platform--foodora:hover { border-color: rgba(224, 22, 79, 0.40); }
+
+/* ── Mobile ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .delivery__card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+    gap: 20px;
+  }
+
+  .delivery__sub {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .delivery__platforms {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .delivery__platform {
+    flex: 1;
+    min-width: unset;
+    padding: 16px 12px;
+    gap: 6px;
+  }
+
+  .delivery__logo {
+    height: 34px;
+  }
+
+  .delivery__platform-name {
+    font-size: 17px;
+  }
+
+  .delivery__platform-cta {
+    font-size: 10px;
+  }
+}

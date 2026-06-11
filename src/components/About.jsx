@@ -13,11 +13,11 @@ export default function About() {
             </h2>
             <p className="about__tagline">"Like you were at home."</p>
             <p className="about__body">
-              Parisi6 brings classic Hungarian flavours into a relaxed, modern Budapest setting —
+              Pesti6 brings classic Hungarian flavours into a relaxed, modern Budapest setting —
               goulash, paprika, duck, wine, and the kind of warm service that makes dinner feel easy.
             </p>
             <p className="about__body">
-              Set at Párizsi utca 6b, just steps from the Danube and Váci utca, it is a place
+              Set on Váci utca, just steps from the Danube and Vörösmarty tér, it is a place
               to sit down, slow down, and enjoy Budapest through its food.
             </p>
 
@@ -27,12 +27,12 @@ export default function About() {
                 <span className="about__fact-label">Google rating</span>
               </div>
               <div className="about__fact">
-                <span className="about__fact-num">11k+</span>
+                <span className="about__fact-num">7.4k+</span>
                 <span className="about__fact-label">Reviews</span>
               </div>
               <div className="about__fact">
-                <span className="about__fact-num">6b</span>
-                <span className="about__fact-label">Párizsi utca</span>
+                <span className="about__fact-num">14</span>
+                <span className="about__fact-label">Váci utca</span>
               </div>
             </div>
 
@@ -46,9 +46,9 @@ export default function About() {
           </div>
 
           <div className="about__image" data-reveal data-delay="2">
-            <img src={interiorImg} alt="Parisi6 restaurant interior — warm Budapest atmosphere" loading="lazy" />
+            <img src={interiorImg} alt="Pesti6 restaurant interior — warm Budapest atmosphere" loading="lazy" />
             <div className="about__image-badge">
-              <span className="about__image-badge-parisi">Parisi</span>
+              <span className="about__image-badge-parisi">Pesti</span>
               <span className="about__image-badge-six">6</span>
             </div>
           </div>

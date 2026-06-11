@@ -17,7 +17,7 @@ export default function Navigation() {
     <nav className={`nav${scrolled ? ' nav--scrolled' : ''}${open ? ' nav--open' : ''}`}>
       <div className="nav__inner container">
         <a href="#" className="nav__logo" onClick={close}>
-          <span className="nav__logo-text">Parisi</span>
+          <span className="nav__logo-text">Pesti</span>
           <span className="nav__logo-six">6</span>
         </a>
 

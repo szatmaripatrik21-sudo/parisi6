@@ -18,13 +18,13 @@ export default function Hero() {
             <span className="hero__badge-star">★</span>
             <span>4.8</span>
             <span className="hero__badge-sep">·</span>
-            <span>11,000+ Google reviews</span>
+            <span>7,400+ Google reviews</span>
             <span className="hero__badge-sep hero__badge-sep--addr">·</span>
-            <span className="hero__badge-addr">Párizsi utca 6/B</span>
+            <span className="hero__badge-addr">Váci utca 14</span>
           </div>
 
           <h1 className="hero__title hero__title--anim">
-            <span className="hero__title-parisi">Parisi</span>
+            <span className="hero__title-parisi">Pesti</span>
             <span className="hero__title-six">6</span>
           </h1>
 

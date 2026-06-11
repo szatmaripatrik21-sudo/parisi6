@@ -57,10 +57,10 @@ export default function Reviews() {
                   <span key={n} className={`reviews__star${n <= 4 ? '' : ' reviews__star--partial'}`}>★</span>
                 ))}
               </div>
-              <p className="reviews__count">11,000+ Google reviews</p>
+              <p className="reviews__count">7,400+ Google reviews</p>
             </div>
             <a
-              href="https://www.google.com/maps/search/?api=1&query=P%C3%A1rizsi+utca+6b%2C+1052+Budapest"
+              href="https://www.google.com/maps/search/?api=1&query=V%C3%A1ci+utca+14%2C+1052+Budapest"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn--outline-paprika reviews__google-btn"

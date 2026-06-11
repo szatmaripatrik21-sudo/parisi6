@@ -74,7 +74,7 @@ export default function MenuPreview() {
         <div className="menu-preview__layout">
           {/* Photo side */}
           <div className="menu-preview__photo" data-reveal>
-            <img src={tableImg} alt="Table full of Hungarian dishes at Parisi6" loading="lazy" />
+            <img src={tableImg} alt="Table full of Hungarian dishes at Pesti6" loading="lazy" />
             <div className="menu-preview__photo-overlay">
               <span className="menu-preview__photo-text">
                 Classic Hungarian dishes, served fresh

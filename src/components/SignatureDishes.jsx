@@ -11,7 +11,7 @@ const dishes = [
     accent: 'paprika',
     tag: 'Signature',
     img: foodImg,
-    imgAlt: 'Gourmet beef stew at Parisi6',
+    imgAlt: 'Gourmet beef stew at Pesti6',
   },
   {
     name: 'Goat cheese salad',
@@ -20,7 +20,7 @@ const dishes = [
     accent: 'gold',
     tag: 'Fresh',
     img: food1Img,
-    imgAlt: 'Goat cheese salad at Parisi6',
+    imgAlt: 'Goat cheese salad at Pesti6',
   },
   {
     name: 'Homemade apple strudel',
@@ -29,7 +29,7 @@ const dishes = [
     accent: 'gold',
     tag: 'Dessert',
     img: food2Img,
-    imgAlt: 'Homemade apple strudel at Parisi6',
+    imgAlt: 'Homemade apple strudel at Pesti6',
   },
 ]
 

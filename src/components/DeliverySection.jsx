@@ -26,7 +26,7 @@ export default function DeliverySection() {
             <span className="section-label">Kiszállítás</span>
             <h2 className="delivery__title">Otthonról is rendelhetsz</h2>
             <p className="delivery__sub">
-              Aranypinty kedvenceid Wolton és Foodorán keresztül is elérhetők.
+              Pesti6 kedvenceid Wolton és Foodorán keresztül is elérhetők.
             </p>
           </div>
 

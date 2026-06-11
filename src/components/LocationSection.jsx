@@ -1,7 +1,7 @@
 import './LocationSection.css'
 
-const MAPS_EMBED = 'https://maps.google.com/maps?q=P%C3%A1rizsi+utca+6b%2C+1052+Budapest%2C+Hungary&hl=en&z=16&output=embed'
-const MAPS_LINK  = 'https://www.google.com/maps/search/?api=1&query=P%C3%A1rizsi+utca+6b%2C+1052+Budapest'
+const MAPS_EMBED = 'https://maps.google.com/maps?q=V%C3%A1ci+utca+14%2C+1052+Budapest%2C+Hungary&hl=en&z=16&output=embed'
+const MAPS_LINK  = 'https://www.google.com/maps/search/?api=1&query=V%C3%A1ci+utca+14%2C+1052+Budapest'
 
 export default function LocationSection() {
   return (
@@ -11,7 +11,7 @@ export default function LocationSection() {
           <span className="section-label">Find us</span>
           <h2 className="location__title">In the heart of Budapest</h2>
           <p className="location__sub">
-            Walking distance from Váci utca, the Danube and Astoria metro station.
+            On Budapest's most famous pedestrian street, steps from Vörösmarty tér and the Danube.
           </p>
         </div>
 
@@ -19,7 +19,7 @@ export default function LocationSection() {
           <div className="location__map">
             <iframe
               src={MAPS_EMBED}
-              title="Parisi6 location — Párizsi utca 6b, Budapest"
+              title="Pesti6 location — Váci utca 14, Budapest"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -38,7 +38,7 @@ export default function LocationSection() {
             <div className="location__info-block">
               <span className="location__info-label">Address</span>
               <p className="location__info-value">
-                Párizsi utca 6b<br />
+                Váci utca 14<br />
                 1052 Budapest, Hungary
               </p>
             </div>
@@ -46,10 +46,10 @@ export default function LocationSection() {
             <div className="location__info-block">
               <span className="location__info-label">Nearby</span>
               <ul className="location__nearby">
-                <li>Váci utca – 3 min walk</li>
-                <li>Astoria metro – 5 min walk</li>
-                <li>Chain Bridge – 10 min walk</li>
-                <li>Danube riverbank – 5 min walk</li>
+                <li>Vörösmarty tér – 3 min walk</li>
+                <li>Deák Ferenc tér metro – 5 min walk</li>
+                <li>Chain Bridge – 8 min walk</li>
+                <li>Danube riverbank – 4 min walk</li>
               </ul>
             </div>
 

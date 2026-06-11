@@ -1,7 +1,7 @@
 import './BookingContact.css'
 import outsidesittingImg from '../assets/outsidesitting.jpg'
 
-const MAPS_LINK = 'https://www.google.com/maps/search/?api=1&query=P%C3%A1rizsi+utca+6b%2C+1052+Budapest'
+const MAPS_LINK = 'https://www.google.com/maps/search/?api=1&query=V%C3%A1ci+utca+14%2C+1052+Budapest'
 
 export default function BookingContact() {
   return (
@@ -13,11 +13,11 @@ export default function BookingContact() {
           <div className="booking__photo" data-reveal>
             <img
               src={outsidesittingImg}
-              alt="Parisi6 outdoor terrace at Párizsi utca 6b, Budapest"
+              alt="Pesti6 outdoor terrace at Váci utca 14, Budapest"
               loading="lazy"
             />
             <div className="booking__photo-tag">
-              Outdoor terrace · Párizsi utca 6b
+              Outdoor terrace · Váci utca 14
             </div>
           </div>
 
@@ -27,7 +27,7 @@ export default function BookingContact() {
             <h2 className="booking__title">Reserve your table</h2>
             <p className="booking__sub">
               Classic Hungarian food, warm Budapest atmosphere, and a table
-              waiting for you at Párizsi utca 6b.
+              waiting for you at Váci utca 14.
             </p>
 
             <div className="booking__details">
@@ -39,19 +39,19 @@ export default function BookingContact() {
                   rel="noopener noreferrer"
                   className="booking__detail-value booking__detail-link"
                 >
-                  Párizsi utca 6b, 1052 Budapest
+                  Váci utca 14, 1052 Budapest
                 </a>
               </div>
               <div className="booking__detail">
                 <span className="booking__detail-label">Phone</span>
-                <a href="tel:+36305999137" className="booking__detail-value booking__detail-link">
-                  +36 30 599 9137
+                <a href="tel:+36304447823" className="booking__detail-value booking__detail-link">
+                  +36 30 444 7823
                 </a>
               </div>
               <div className="booking__detail">
                 <span className="booking__detail-label">Email</span>
-                <a href="mailto:parisi6@parisi6.com" className="booking__detail-value booking__detail-link">
-                  parisi6@parisi6.com
+                <a href="mailto:info@pesti6.com" className="booking__detail-value booking__detail-link">
+                  info@pesti6.com
                 </a>
               </div>
               <div className="booking__detail">
@@ -65,7 +65,7 @@ export default function BookingContact() {
 
             <div className="booking__actions">
               <a
-                href="https://wa.me/36305999137"
+                href="https://wa.me/36304447823"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn--primary booking__btn"
@@ -73,7 +73,7 @@ export default function BookingContact() {
                 Book a table
               </a>
               <div className="booking__actions-row">
-                <a href="tel:+36305999137" className="btn btn--outline-dark booking__btn-half">
+                <a href="tel:+36304447823" className="btn btn--outline-dark booking__btn-half">
                   Call now
                 </a>
                 <a
